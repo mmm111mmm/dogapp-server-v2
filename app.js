@@ -32,6 +32,12 @@ app.post('/hungry/:dog/:state', function (request, response, next) {
   response.status(400).send({"error": "Can't find that dog, sunshine."});
 });
 
+setInterval(function() {
+  for(var i = 0; i < dogs.length; i++) {
+    dogs[i].hungry = "yes"
+  }
+}, 30000)
+
 app.get('/dogs', function (request, response, next) { 
   response.send(dogs);
 });
